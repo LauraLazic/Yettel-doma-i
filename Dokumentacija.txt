@@ -1,0 +1,21 @@
+restAPI - Integracija za kupovinu putnog osiguranja
+
+
+Ideja
+U postojeću Yettel aplikaciju potrebno je integrisati novu sekciju "Osiguranje". Preduslov za razvijanje ove sekcije je da se kompanija Yettel poveže sa (našom) osiguravajućom kućom. U sekciji se nalazi formular čijim popunjavanjem korisnik obezbeđuje osiguranje. Sadržaj formulara: Način putovanja (individualno, porodično ili grupno), period važenja osiguranja i destinacija. Da bi klijent mogao da obezbedi osiguranje, potrebno je da ima nalog na Yettel aplikaciji. Samim tim informacije o imenu, prezimenu, email adresi i telefonu se automatski unose u formular. Način plaćanja bi se realizovao uz pomoć Yettel Bank aplikacije ili putem već poznatog načina plaćanja kompanije Yettel.
+
+
+Tehnologije
+Prilikom izrade zadatka korišćena je nerelaciona baza podataka MongoDB. Komunikacija sa bazom je rešena uz pomoć Express-a, Node.JS-a i Mongoose-a. Za obradu zahteva je korišćena Axios biblioteka. Ceo kod je iskucan u programskom jeziku JavaScript.
+
+
+Opis metoda
+api/korisnici (GET) -> Metoda koja vraća sve korisnike
+api/korisnik (POST) -> Metoda koja proverava da li korisnik već poseduje osiguranje, tačnije, da li korisnik poseduje nalog
+api/dodajKorisnika (POST) -> Metoda koja prima parametre (ime, prezime i email), kreira novog korisnika i čuva ga u bazi
+api/osiguranja (GET) -> Metoda koja vraća sva osiguranja
+api/vratiOsiguranje (POST) -> Metoda koja prima email, kao parametar, i vraća osiguranje korisnika sa tom email adresom
+api/osiguranje (POST) -> Metoda koja kreira novo osiguranje sa podacima korisnika
+
+
+
